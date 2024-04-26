@@ -154,7 +154,8 @@ namespace EmployeeManagement.Business
            string firstName, string lastName)
         {
             // use the factory to create the object 
-            var employee = (InternalEmployee)_employeeFactory.CreateEmployee(firstName, lastName);
+            var employee = (InternalEmployee)_employeeFactory.CreateEmployee(
+                firstName, lastName);
 
             // apply business logic 
        
@@ -162,7 +163,8 @@ namespace EmployeeManagement.Business
             // during vetting process
 
             // get those courses  
-            var obligatoryCourses = await _repository.GetCoursesAsync(_obligatoryCourseIds);
+            var obligatoryCourses = await _repository.GetCoursesAsync(
+                _obligatoryCourseIds);
 
             // add them for this employee
             foreach (var obligatoryCourse in obligatoryCourses)
@@ -200,7 +202,8 @@ namespace EmployeeManagement.Business
             OnEmployeeIsAbsent(new EmployeeIsAbsentEventArgs(employee.Id));
         }
 
-        protected virtual void OnEmployeeIsAbsent(EmployeeIsAbsentEventArgs eventArgs)
+        protected virtual void OnEmployeeIsAbsent(
+            EmployeeIsAbsentEventArgs eventArgs)
         {
             EmployeeIsAbsent?.Invoke(this, eventArgs);
         }
