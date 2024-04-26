@@ -1,4 +1,9 @@
 ﻿using EmployeeManagement.DataAccess.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace EmployeeManagement.Test
@@ -16,7 +21,7 @@ namespace EmployeeManagement.Test
             employee.LastName = "SHELTON";
 
             // Assert
-            Assert.Equal("Lucia Shelton", employee.FullName, ignoreCase: true);
+            Assert.Equal("Lucia Shelton", employee.FullName, ignoreCase:true);
         }
 
         [Fact]
@@ -34,7 +39,7 @@ namespace EmployeeManagement.Test
         }
 
         [Fact]
-        public void EmployeeFullNamePropertyGetter_InputFirstNameAndLastName_FullNameEndsWithLastName()
+        public void EmployeeFullNamePropertyGetter_InputFirstNameAndLastName_FullNameEndsWithFirstName()
         {
             // Arrange
             var employee = new InternalEmployee("Kevin", "Dockx", 0, 2500, false, 1);
